@@ -1,1 +1,5 @@
-npx wrangler pages deploy dist --project-name=work-tracker
+name = "work-tracker"
+compatibility_date = "2026-03-25"
+
+[assets]
+directory = "./dist"
