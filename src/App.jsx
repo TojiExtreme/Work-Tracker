@@ -67,6 +67,8 @@ export default function App() {
 
   const nextWed = getPayWednesday();
   const weekStart = getWeekStart(nextWed);
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
   const totalAdvances = data.advances.reduce((s, a) => s + Number(a.amount), 0);
   const workedThisWeek = getWorkedDaysBetween(data.workDays, weekStart, nextWed);
   const grossThisWeek = workedThisWeek.length * Number(data.dailyRate);
