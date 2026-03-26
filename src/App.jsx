@@ -169,7 +169,7 @@ export default function App() {
             totalAdvances={totalAdvances} workedThisWeek={workedThisWeek}
             grossThisWeek={grossThisWeek} netPay={netPay}
             daysThisMonth={daysThisMonth} overtimeThisMonth={overtimeThisMonth}
-            sundayDays={sundayDays} nextWed={nextWed} weekStart={weekStart} />
+            sundayDays={sundayDays} nextWed={nextWed} weekStart={weekStart} weekEnd={weekEnd} />
         )}
         {tab === "Log Day" && <LogDay data={data} save={save} showToast={showToast} />}
         {tab === "Advances" && <Advances data={data} save={save} showToast={showToast} totalAdvances={totalAdvances} />}
@@ -183,7 +183,7 @@ export default function App() {
 }
 
 // ── DASHBOARD ──
-function Dashboard({ data, save, showToast, totalAdvances, workedThisWeek, grossThisWeek, netPay, daysThisMonth, overtimeThisMonth, sundayDays, nextWed, weekStart }) {
+function Dashboard({ data, save, showToast, totalAdvances, workedThisWeek, grossThisWeek, netPay, daysThisMonth, overtimeThisMonth, sundayDays, nextWed, weekStart, weekEnd }) {
   const [editRate, setEditRate] = useState(false);
   const [rateInput, setRateInput] = useState(data.dailyRate);
 
