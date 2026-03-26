@@ -219,7 +219,7 @@ function Dashboard({ data, save, showToast, totalAdvances, workedThisWeek, gross
           This Week's Pay
         </div>
         <div style={{ fontSize: 11, color: "#444", marginBottom: 12 }}>
-          {weekStart.toLocaleDateString("en-GB", { day: "2-digit", month: "short" })} → {nextWed.toLocaleDateString("en-GB", { day: "2-digit", month: "short" })} (Wed)
+          {weekStart.toLocaleDateString("en-GB", { day: "2-digit", month: "short" })} → {weekEnd.toLocaleDateString("en-GB", { day: "2-digit", month: "short" })} (Sat)
         </div>
         <div className="row" style={{ marginBottom: 8 }}>
           <span style={{ color: "#777", fontSize: 13 }}>Days worked</span>
