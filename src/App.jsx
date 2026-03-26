@@ -19,21 +19,22 @@ function formatDate(dateStr) {
 }
 
 function getPayWednesday() {
-  // The current/upcoming payday Wednesday
+  // Payday = Wednesday AFTER the current Sun-Sat week
   const d = new Date();
   d.setHours(0, 0, 0, 0);
-  if (d.getDay() === 3) return d; // today is Wednesday = payday
-  while (d.getDay() !== 3) d.setDate(d.getDate() + 1);
-  return d;
+  // Find the Saturday that ends this week
+  const sat = new Date(d);
+  sat.setDate(d.getDate() + (6 - d.getDay())); // this Saturday
+  // Payday Wednesday = 4 days after that Saturday
+  sat.setDate(sat.getDate() + 4);
+  return sat;
 }
-
 function getWeekStart(payWed) {
-  // Week starts the day after the PREVIOUS Wednesday (i.e. last Thursday)
+  // Week starts Sunday = 10 days before payday Wednesday
   const d = new Date(payWed);
-  d.setDate(d.getDate() - 6); // 6 days before payday Wed = last Thursday
+  d.setDate(d.getDate() - 10);
   return d;
 }
-
 function getWorkedDaysBetween(workDays, from, to) {
   return workDays.filter(d => {
     const date = new Date(d.date + "T00:00:00");
